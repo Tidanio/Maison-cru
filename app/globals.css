@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans;
+  }
+
+  ::selection {
+    background-color: theme("colors.ink");
+    color: theme("colors.paper");
+  }
+
+  /* Keyboard focus only — never remove focus affordance entirely. */
+  :focus-visible {
+    outline: 2px solid theme("colors.ink");
+    outline-offset: 3px;
+  }
+
+  /* Slim, on-brand scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: theme("colors.paper");
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme("colors.ash");
+    border: 3px solid theme("colors.paper");
+    border-radius: 999px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Subtle vertical fade used at section seams */
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
+}
+
+/* Honor user motion preferences globally. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
