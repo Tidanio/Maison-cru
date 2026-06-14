@@ -64,22 +64,14 @@ export default function ProductGrid() {
               className="block h-full w-full focus-visible:outline-none"
               aria-label={`${p.name} — ${p.price}`}
             >
-              {/* Secondary image (revealed beneath) */}
-              <Image
-                src={p.imageAlt}
-                alt=""
-                fill
-                aria-hidden
-                sizes="(max-width: 768px) 50vw, 25vw"
-                className="object-cover transition-transform duration-[1200ms] ease-silk group-hover:scale-[1.04]"
-              />
-              {/* Primary image — fades out on hover to reveal the second shot */}
+              {/* Product photograph — monochrome at rest on desktop, full
+                  colour on hover; always colour on touch devices. */}
               <Image
                 src={p.image}
                 alt={p.name}
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"
-                className="object-cover transition-all duration-[1200ms] ease-silk group-hover:scale-[1.04] md:group-hover:opacity-0"
+                className="object-cover transition-all duration-[1100ms] ease-silk group-hover:scale-[1.04] md:grayscale md:group-hover:grayscale-0"
               />
 
               {/* Gradient scrim — always on (mobile), reveal on hover (desktop) */}

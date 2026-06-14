@@ -5,18 +5,11 @@ export type Product = {
   name: string;
   category: string;
   price: string;
-  /** Primary editorial image (shown at rest). */
+  /** Product photograph (served from /public/products). */
   image: string;
-  /** Secondary image revealed on hover. */
-  imageAlt: string;
   /** Bento footprint. */
   span: ProductSpan;
 };
-
-// Monochrome editorial placeholders (deterministic via seed). Swap `image` /
-// `imageAlt` for your real product photography CDN when wiring up the catalog.
-const shot = (seed: string) =>
-  `https://picsum.photos/seed/${seed}/1000/1250?grayscale`;
 
 export const products: Product[] = [
   {
@@ -24,8 +17,7 @@ export const products: Product[] = [
     name: "The Wool Overcoat",
     category: "Outerwear",
     price: "€1,890",
-    image: shot("ecru-coat-a"),
-    imageAlt: shot("ecru-coat-b"),
+    image: "/products/wool-overcoat.jpg",
     span: "feature",
   },
   {
@@ -33,8 +25,7 @@ export const products: Product[] = [
     name: "Cashmere Rib Knit",
     category: "Knitwear",
     price: "€640",
-    image: shot("ecru-knit-a"),
-    imageAlt: shot("ecru-knit-b"),
+    image: "/products/cashmere-rib-knit.jpg",
     span: "tall",
   },
   {
@@ -42,8 +33,7 @@ export const products: Product[] = [
     name: "Silk Slip Dress",
     category: "Dresses",
     price: "€820",
-    image: shot("ecru-silk-a"),
-    imageAlt: shot("ecru-silk-b"),
+    image: "/products/silk-slip-dress.jpg",
     span: "normal",
   },
   {
@@ -51,8 +41,7 @@ export const products: Product[] = [
     name: "Pleated Trouser",
     category: "Tailoring",
     price: "€490",
-    image: shot("ecru-trouser-a"),
-    imageAlt: shot("ecru-trouser-b"),
+    image: "/products/pleated-trousers.jpg",
     span: "normal",
   },
   {
@@ -60,8 +49,7 @@ export const products: Product[] = [
     name: "Leather Derby",
     category: "Footwear",
     price: "€720",
-    image: shot("ecru-derby-a"),
-    imageAlt: shot("ecru-derby-b"),
+    image: "/products/leather-derby.jpg",
     span: "wide",
   },
   {
@@ -69,8 +57,7 @@ export const products: Product[] = [
     name: "Linen Shirt",
     category: "Shirting",
     price: "€310",
-    image: shot("ecru-linen-a"),
-    imageAlt: shot("ecru-linen-b"),
+    image: "/products/linen-shirt.jpg",
     span: "tall",
   },
   {
@@ -78,8 +65,7 @@ export const products: Product[] = [
     name: "Structured Tote",
     category: "Leather Goods",
     price: "€1,250",
-    image: shot("ecru-tote-a"),
-    imageAlt: shot("ecru-tote-b"),
+    image: "/products/structured-tote.jpg",
     span: "normal",
   },
 ];
